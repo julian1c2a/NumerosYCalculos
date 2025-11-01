@@ -16,8 +16,9 @@
 #include <limits>
 #include <numbers_calculations/core/extended_type_traits.hpp> // Para uint128_t
 
-
 namespace numbers_calculations::math::internal {
+
+using numbers_calculations::core::uint128_t;
 
 // ======================================================================
 // SECCIÓN DE LOOKUP TABLES (LUTs) CONSTEXPR

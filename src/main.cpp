@@ -31,6 +31,7 @@
 // (En los headers .hpp nunca usamos `using namespace`).
 using namespace numbers_calculations::core::literals;
 using namespace numbers_calculations;
+namespace mp = boost::multiprecision;
 
 // --- Demo para la Fase 2a: Type Traits ---
 void demo_extended_type_traits() {

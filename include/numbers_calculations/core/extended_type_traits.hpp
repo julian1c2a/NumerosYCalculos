@@ -24,7 +24,6 @@
 #include <limits> // Para std::numeric_limits
 #include <numbers_calculations/core/extended_type_traits.hpp> // Para std::is_integral, std::integral_constant, etc.
 
-
 // --- Detección de Compilador y Soporte de __int128 ---
 // __int128_t y __uint128_t son extensiones de GCC y Clang.
 #if defined(__GNUC__) || defined(__clang__)
@@ -180,100 +179,6 @@ struct is_supported_integer
 template <typename T>
 inline constexpr bool is_supported_integer_v = is_supported_integer<T>::value;
 
-// --- Especialización de std::numeric_limits para __int128 ---
-// (Cumpliendo la especificación de "gemini.md")
-// Esto es necesario para que funciones como std::max() funcionen.
-#if HAS_NATIVE_INT128
-} // cerrar namespace temporalmente para especializar std::
-
-namespace std {
-
-template <> class numeric_limits<numbers_calculations::core::int128_t> {
-public:
-  static constexpr bool is_specialized = true;
-  static constexpr bool is_signed = true;
-  static constexpr bool is_integer = true;
-  static constexpr bool is_exact = true;
-  static constexpr bool has_infinity = false;
-  static constexpr bool has_quiet_NaN = false;
-  static constexpr bool has_signaling_NaN = false;
-  static constexpr std::float_denorm_style has_denorm = std::denorm_absent;
-  static constexpr bool has_denorm_loss = false;
-  static constexpr std::float_round_style round_style = std::round_toward_zero;
-  static constexpr bool is_iec559 = false;
-  static constexpr bool is_bounded = true;
-  static constexpr bool is_modulo = true;
-  // --- INICIO DE CORRECCIÓN ---
-  static constexpr int digits = 127;  // 128 bits - 1 bit de signo
-  static constexpr int digits10 = 38; // floor(127 * log10(2))
-  // --- FIN DE CORRECCIÓN ---
-  static constexpr int max_digits10 = 0;
-  static constexpr int radix = 2;
-  static constexpr int min_exponent = 0;
-  static constexpr int min_exponent10 = 0;
-  static constexpr int max_exponent = 0;
-  static constexpr int max_exponent10 = 0;
-  static constexpr bool traps = true;
-  static constexpr bool tinyness_before = false;
-
-  static constexpr numbers_calculations::core::int128_t min() noexcept {
-    return static_cast<numbers_calculations::core::int128_t>(1) << 127;
-  }
-  static constexpr numbers_calculations::core::int128_t lowest() noexcept {
-    return min();
-  }
-  static constexpr numbers_calculations::core::int128_t max() noexcept {
-    return ~min();
-  }
-  static constexpr numbers_calculations::core::int128_t epsilon() noexcept {
-    return 0;
-  }
-  static constexpr numbers_calculations::core::int128_t round_error() noexcept {
-    return 0;
-  }
-  static constexpr numbers_calculations::core::int128_t infinity() noexcept {
-    return 0;
-  }
-  static constexpr numbers_calculations::core::int128_t quiet_NaN() noexcept {
-    return 0;
-  }
-  static constexpr numbers_calculations::core::int128_t
-  signaling_NaN() noexcept {
-    return 0;
-  }
-  static constexpr numbers_calculations::core::int128_t denorm_min() noexcept {
-    return 0;
-  }
-};
-
-// (Especialización para uint128_t)
-template <> class numeric_limits<numbers_calculations::core::uint128_t> {
-public:
-  static constexpr bool is_specialized = true;
-  static constexpr bool is_signed = false;
-  static constexpr bool is_integer = true;
-  // ... (resto de miembros similares a int128_t) ...
-  // --- INICIO DE CORRECCIÓN ---
-  static constexpr int digits = 128;  // 128 bits, sin signo
-  static constexpr int digits10 = 38; // floor(128 * log10(2))
-  // --- FIN DE CORRECCIÓN ---
-
-  static constexpr numbers_calculations::core::uint128_t min() noexcept {
-    return 0;
-  }
-  static constexpr numbers_calculations::core::uint128_t lowest() noexcept {
-    return 0;
-  }
-  static constexpr numbers_calculations::core::uint128_t max() noexcept {
-    return ~static_cast<numbers_calculations::core::uint128_t>(0);
-  }
-  // ... (resto de miembros en 0) ...
-};
-} // namespace std
-
-namespace numbers_calculations::core {
 // Los numeric_limits para Boost ya están proporcionados por la propia
 // biblioteca Boost. No necesitamos especializarlos manualmente.
-} // namespace numbers_calculations::core
-
 #endif // HAS_NATIVE_INT128

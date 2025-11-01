@@ -14,3 +14,4 @@ build
 # Archivos de vcpkg (si se usa localmente)
 vcpkg/
 vcpkg_installed/
+.fake

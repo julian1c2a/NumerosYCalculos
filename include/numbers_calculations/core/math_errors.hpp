@@ -53,4 +53,24 @@ template <class T, class E = MathError> using Expected = tl::expected<T, E>;
 // Helper para crear un error inesperado
 template <class E = MathError> using Unexpected = tl::unexpected<E>;
 
+/**
+ * @brief Convierte un valor de MathError a una cadena legible.
+ */
+inline const char *error_to_string(MathError err) noexcept {
+  switch (err) {
+  case MathError::NoError:
+    return "NoError";
+  case MathError::Overflow:
+    return "Error: Overflow";
+  case MathError::Underflow:
+    return "Error: Underflow";
+  case MathError::DivisionByZero:
+    return "Error: DivisionByZero";
+  case MathError::DomainError:
+    return "Error: DomainError";
+  default:
+    return "Error: Unknown";
+  }
+}
+
 } // namespace numbers_calculations::core
