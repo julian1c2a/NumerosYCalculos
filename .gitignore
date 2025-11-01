@@ -2,6 +2,7 @@
 
 # Directorios de compilación generados por los scripts
 build_*/
+build
 
 # Archivos de configuración del editor
 .vscode/
