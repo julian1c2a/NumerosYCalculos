@@ -16,7 +16,7 @@ add_executable(unit_tests
 # 2. La biblioteca principal de Catch2
 target_link_libraries(unit_tests
     PRIVATE
-        NumerosYCalculos_interface
+        numbers_calculations_interface # Hereda los includes globales (core/, math/, etc.)
         Catch2::Catch2WithMain
 )
 

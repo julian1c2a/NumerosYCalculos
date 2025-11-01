@@ -31,15 +31,32 @@ if "%~3"=="" (
 set "COMPILER=%~1"
 set "BUILD_TYPE=%~2"
 set "CXX_STD=%~3"
-set "BUILD_TYPE_CMAKE=%BUILD_TYPE:debug=Debug:release=Release%"
+
+set "BUILD_TYPE_CMAKE=Release"
+if /i "%BUILD_TYPE%"=="debug" (
+    set "BUILD_TYPE_CMAKE=Debug"
+)
+
 
 rem --- 2. Definir Directorio de Build (basado en gemini.md) ---
-set "BUILD_DIR=build_%COMPILER%_%BUILD_TYPE%_cpp%CXX_STD%"
+set "BUILD_DIR=build/%COMPILER%_%BUILD_TYPE%_cpp%CXX_STD%"
 set "SCRIPT_DIR=%~dp0"
 set "PROJECT_ROOT=%SCRIPT_DIR%.."
 
 rem --- 3. Configuracion especifica del Compilador ---
-set "CMAKE_ARGS=-G Ninja -S "%PROJECT_ROOT%" -B "%PROJECT_ROOT%/%BUILD_DIR%""
+
+rem --- NUEVO: Manejo del comando 'clean' ---
+if /i "%~4"=="clean" (
+    echo [CLEAN] Borrando el directorio de build: %BUILD_DIR%
+    if exist "%PROJECT_ROOT%/%BUILD_DIR%" (
+        rmdir /s /q "%PROJECT_ROOT%/%BUILD_DIR%"
+        echo [CLEAN] Directorio borrado.
+    ) else (
+        echo [CLEAN] El directorio no existia. No se necesita limpieza.
+    )
+)
+
+set "CMAKE_ARGS=-G "MinGW Makefiles" -S "%PROJECT_ROOT%" -B "%PROJECT_ROOT%/%BUILD_DIR%""
 set "CMAKE_ARGS=%CMAKE_ARGS% -DCMAKE_BUILD_TYPE=%BUILD_TYPE_CMAKE%"
 
 echo [CONFIG] Compilador:   %COMPILER%
@@ -115,7 +132,7 @@ if "%COMPILER%"=="gcc" (
 
 :configure
 rem --- 4. Ejecutar CMake (Configuracion) ---
-echo.
+echo. 
 echo [CMD] cmake %CMAKE_ARGS%
 cmake %CMAKE_ARGS%
 if %errorlevel% neq 0 (
@@ -138,7 +155,6 @@ goto :eof
 
 :usage
 echo.
-echo Uso: %~n0 [gcc^|clang^|msvc] [debug^|release] [17^|20^|23]
+echo Uso: %~n0 [gcc^|clang^|msvc] [debug^|release] [17^|20^|23] [clean]
 echo Ejemplo: %~n0 gcc debug 17
 goto :eof
-

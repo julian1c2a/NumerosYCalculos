@@ -12,10 +12,10 @@
 
 // Necesitamos los type_traits para definir uint128_t, que es la base
 // de nuestra tabla de alta precisión.
-#include "core/nyc_type_traits.hpp" // Para uint128_t
 #include <array>
+#include <numbers_calculations/core/extended_type_traits.hpp>
 
-namespace numeros_calculos::math::internal {
+namespace numbers_calculations::math::internal {
 
 /**
  * @brief Generador Constexpr para la LUT de factoriales.
@@ -37,4 +37,4 @@ constexpr std::array<T, N> generate_factorial_lut() {
 // 34! es el primer factorial que desborda un uint128_t.
 constexpr auto FACTORIALS_LUT = generate_factorial_lut<core::uint128_t, 34>();
 
-} // namespace numeros_calculos::math::internal
+} // namespace numbers_calculations::math::internal

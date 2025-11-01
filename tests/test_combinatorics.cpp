@@ -8,13 +8,13 @@
  * ==============================================================================
  */
 
-#include "core/constexpr_literals.hpp"
-#include "core/math_error.hpp"
-#include "math/combinatorics.hpp"
 #include <catch2/catch_test_macros.hpp>
+#include <numbers_calculations/core/constexpr_literals.hpp>
+#include <numbers_calculations/core/math_error.hpp>
+#include <numbers_calculations/math/combinatorics.hpp>
 
-using namespace numeros_calculos;
-using namespace numeros_calculos::core::literals;
+using namespace numbers_calculations;
+using namespace numbers_calculations::core::literals;
 
 TEST_CASE("Factorial function", "[combinatorics][factorial]") {
 

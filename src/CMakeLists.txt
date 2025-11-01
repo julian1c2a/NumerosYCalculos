@@ -12,12 +12,11 @@ add_executable(demo_main
 )
 
 # Enlazamos la demo con nuestra biblioteca principal ('NumerosYCalculos_lib')
-# para que 'main.cpp' pueda usar los headers de 'include/'.
-# 'NumerosYCalculos_lib' ya tiene los include_directories correctos
-# (definidos en el CMakeLists.txt raíz).
+# para que 'main.cpp' pueda usar los headers de 'include/' y de las dependencias.
+# 'numbers_calculations_interface' agrupa todos los directorios de inclusión necesarios.
 target_link_libraries(demo_main
     PRIVATE
-    NumerosYCalculos_lib
+    numbers_calculations_interface # Hereda los includes globales
 )
 
 # Nos aseguramos de que esta demo se compile con el estándar de C++
@@ -31,4 +30,3 @@ set_target_properties(demo_main PROPERTIES
 # --------------------------------
 # (Aquí añadiremos más demos a medida que las creemos,
 #  como 'factorial_optimization_demo' cuando creemos ese archivo)
-

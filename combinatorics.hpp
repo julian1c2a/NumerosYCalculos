@@ -13,13 +13,13 @@
  * ==============================================================================
  */
 
-#include "core/math_error.hpp"      // Para Expected y MathError
-#include "core/nyc_type_traits.hpp" // Para is_supported_integer_v
-#include "math/internal/factorial_lookup_table.hpp" // <-- NUEVO: Incluimos la LUT
-#include <limits>                                   // Para numeric_limits
+#include "internal/factorial_lookup_table.hpp" // <-- CORREGIDO: Ruta relativa a internal/
+#include <limits>                              // Para numeric_limits
+#include <numbers_calculations/core/extended_type_traits.hpp> // Para is_supported_integer_v
+#include <numbers_calculations/core/math_error.hpp> // Para Expected y MathError
 #include <type_traits> // Para enable_if_t y is_signed_v
 
-namespace numeros_calculos::math {
+namespace numbers_calculations::math {
 
 namespace internal {
 // Implementación 'constexpr' de factorial
@@ -205,4 +205,4 @@ constexpr core::Expected<T> combinations(T n, T k) noexcept {
   return result;
 }
 
-} // namespace numeros_calculos::math
+} // namespace numbers_calculations::math

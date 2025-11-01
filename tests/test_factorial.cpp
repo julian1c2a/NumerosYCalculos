@@ -13,8 +13,8 @@
 #include "math/combinatorics.hpp"
 #include <catch2/catch_test_macros.hpp>
 
-using namespace numeros_calculos;
-using namespace numeros_calculos::core::literals;
+using namespace numbers_calculations;
+using namespace numbers_calculations::core::literals;
 
 TEST_CASE("Factorial function", "[combinatorics][factorial]") {
 

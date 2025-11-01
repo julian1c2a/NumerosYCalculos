@@ -9,22 +9,14 @@
  */
 
 // --- Includes de la Biblioteca ---
-// A medida que creemos nuevos headers, los incluiremos aquí para probarlos.
-
-// Fase 2a: type_traits.hpp
-#include "core/nyc_type_traits.hpp"
-
-// Fase 2b: numeric_io.hpp
-#include "core/numeric_io.hpp"
-
-// Fase 2c: constexpr_literals.hpp
-#include "core/constexpr_literals.hpp"
-
-// Fase 2d: combinatorics.hpp
-#include "math/combinatorics.hpp"
-
-// Fase 2d (revisada): integer_ops.hpp
-#include "math/integer_ops.hpp"
+// Incluimos los headers públicos de la biblioteca.
+// Los detalles de implementación (como lookup_tables) son incluidos
+// por estos headers públicos cuando es necesario.
+#include <numbers_calculations/core/constexpr_literals.hpp>
+#include <numbers_calculations/core/extended_type_traits.hpp>
+#include <numbers_calculations/core/numeric_io.hpp>
+#include <numbers_calculations/math/combinatorics.hpp>
+#include <numbers_calculations/math/integer_ops.hpp>
 
 // --- Includes de la Biblioteca Estándar ---
 #include <iomanip> // Para std::setw
@@ -37,8 +29,8 @@
 // ==========================================================================
 // Usaremos `using namespace` aquí para que las demos sean legibles.
 // (En los headers .hpp nunca usamos `using namespace`).
-using namespace numeros_calculos::core::literals;
-using namespace numeros_calculos;
+using namespace numbers_calculations::core::literals;
+using namespace numbers_calculations;
 
 // --- Demo para la Fase 2a: Type Traits ---
 void demo_type_traits() {

@@ -11,15 +11,14 @@
  * ==============================================================================
  */
 
-#include "core/math_error.hpp"             // Para Expected y MathError
-#include "core/nyc_type_traits.hpp"        // Para is_supported_integer_v
-#include "math/internal/lookup_tables.hpp" // <-- NUEVO: Incluimos las LUTs
-#include <array>                           // Para las LUTs
-#include <concepts>                        // Para std::integral (si C++20)
-#include <limits>                          // Para numeric_limits
-#include <stdexcept>                       // Para std::domain_error
-#include <type_traits>                     // Para enable_if_t
-
+#include "internal/lookup_tables.hpp" // <-- CORREGIDO: Ruta relativa a internal/
+#include <array>                      // Para las LUTs
+#include <concepts>                   // Para std::integral (si C++20)
+#include <limits>                     // Para numeric_limits
+#include <numbers_calculations/core/extended_type_traits.hpp> // Para is_supported_integer_v
+#include <numbers_calculations/core/math_error.hpp> // Para Expected y MathError
+#include <stdexcept>                                // Para std::domain_error
+#include <type_traits>                              // Para enable_if_t
 
 // --- Detección de intrínsecos de compilador para log2 ---
 #if defined(_MSC_VER)
@@ -35,7 +34,7 @@
 #define HAS_CPP20_BITWIDTH
 #endif
 
-namespace numeros_calculos::math {
+namespace numbers_calculations::math {
 
 namespace internal {
 
@@ -360,4 +359,4 @@ constexpr core::Expected<unsigned int> integer_log(T_Base base,
   return internal::generic_log(base, n);
 }
 
-} // namespace numeros_calculos::math
+} // namespace numbers_calculations::math
