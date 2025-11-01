@@ -11,15 +11,13 @@
  * ==============================================================================
  */
 
-#include "internal/lookup_tables.hpp" // <-- CORREGIDO: Ruta relativa a internal/
-#include <array>                      // Para las LUTs
-#include <concepts>                   // Para std::integral (si C++20)
-#include <limits>                     // Para numeric_limits
-#include <numbers_calculations/core/extended_type_traits.hpp> // Para enable_if_t
+#include "math/internal/lookup_tables.hpp" // <-- CORREGIDO: Ruta relativa a internal/
+#include <array>                           // Para las LUTs
+#include <concepts>                        // Para std::integral (si C++20)
+#include <limits>                          // Para numeric_limits
 #include <numbers_calculations/core/extended_type_traits.hpp> // Para is_supported_integer_v
 #include <numbers_calculations/core/math_errors.hpp> // Para Expected y MathError
 #include <stdexcept>                                 // Para std::domain_error
-
 
 // --- Detección de intrínsecos de compilador para log2 ---
 #if defined(_MSC_VER)
@@ -53,9 +51,10 @@ namespace internal {
  * @note Algoritmo O(log n), usado como fallback si la base no está en LUT.
  */
 template <typename T_Base, typename T_Exp,
-          std::enable_if_t<core::is_supported_integer_v<T_Base> &&
-                               core::is_unsigned_v<T_Exp>,
-                           int> = 0>
+          std::enable_if_t<
+              numbers_calculations::core::is_supported_integer_v<T_Base> &&
+                  std::is_unsigned_v<T_Exp>,
+              int> = 0>
 constexpr core::Expected<T_Base> generic_power(T_Base base,
                                                T_Exp exp) noexcept {
   T_Base result{1};
@@ -93,9 +92,10 @@ constexpr core::Expected<T_Base> generic_power(T_Base base,
  * @note Algoritmo O(log_base(n)), usado como fallback.
  */
 template <typename T_Base, typename T_Val,
-          std::enable_if_t<core::is_supported_integer_v<T_Base> &&
-                               core::is_supported_integer_v<T_Val>,
-                           int> = 0>
+          std::enable_if_t<
+              numbers_calculations::core::is_supported_integer_v<T_Base> &&
+                  numbers_calculations::core::is_supported_integer_v<T_Val>,
+              int> = 0>
 constexpr core::Expected<unsigned int> generic_log(T_Base base,
                                                    T_Val n) noexcept {
 
@@ -122,6 +122,10 @@ constexpr core::Expected<unsigned int> generic_log(T_Base base,
 // API PÚBLICA: integer_power
 // ==========================================================================
 
+// --- Declaración adelantada para integer_log2 ---
+template <typename T, std::enable_if_t<std::is_unsigned_v<T>, int> = 0>
+constexpr core::Expected<unsigned int> integer_log2(T n) noexcept;
+
 /**
  * @brief Calcula la potencia entera (base ^ exp).
  *
@@ -143,9 +147,10 @@ constexpr core::Expected<unsigned int> generic_log(T_Base base,
  * @test_property integer_power(2, 128) (uint128_t) == MathError::Overflow
  */
 template <typename T_Base, typename T_Exp,
-          std::enable_if_t<core::is_supported_integer_v<T_Base> &&
-                               core::is_unsigned_v<T_Exp>,
-                           int> = 0>
+          std::enable_if_t<
+              numbers_calculations::core::is_supported_integer_v<T_Base> &&
+                  std::is_unsigned_v<T_Exp>,
+              int> = 0>
 constexpr core::Expected<T_Base> integer_power(T_Base base,
                                                T_Exp exp) noexcept {
 
@@ -286,7 +291,8 @@ constexpr core::Expected<unsigned int> integer_log2(T n) noexcept {
  * @test_property integer_log10(0) == MathError::DomainError
  */
 template <typename T,
-          std::enable_if_t<core::is_supported_integer_v<T>, int> = 0>
+          std::enable_if_t<
+              numbers_calculations::core::is_supported_integer_v<T>, int> = 0>
 constexpr core::Expected<unsigned int> integer_log10(T n) noexcept {
   if (n <= 0) {
     return core::Unexpected(core::MathError::DomainError);
@@ -332,9 +338,10 @@ constexpr core::Expected<unsigned int> integer_log10(T n) noexcept {
  * `MathError::DomainError`.
  */
 template <typename T_Base, typename T_Val,
-          std::enable_if_t<core::is_supported_integer_v<T_Base> &&
-                               core::is_supported_integer_v<T_Val>,
-                           int> = 0>
+          std::enable_if_t<
+              numbers_calculations::core::is_supported_integer_v<T_Base> &&
+                  numbers_calculations::core::is_supported_integer_v<T_Val>,
+              int> = 0>
 constexpr core::Expected<unsigned int> integer_log(T_Base base,
                                                    T_Val n) noexcept {
 

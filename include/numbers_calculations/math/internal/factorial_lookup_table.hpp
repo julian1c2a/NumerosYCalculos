@@ -35,6 +35,7 @@ constexpr std::array<T, N> generate_factorial_lut() {
 }
 
 // 34! es el primer factorial que desborda un uint128_t.
-constexpr auto FACTORIALS_LUT = generate_factorial_lut<core::uint128_t, 34>();
+constexpr auto FACTORIALS_LUT =
+    generate_factorial_lut<numbers_calculations::core::uint128_t, 34>();
 
 } // namespace numbers_calculations::math::internal

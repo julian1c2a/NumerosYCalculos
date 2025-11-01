@@ -27,6 +27,12 @@
 
 namespace numbers_calculations::core {
 
+// Declaraciones adelantadas para resolver ambigüedad con GCC 15+
+#if HAS_NATIVE_INT128
+std::ostream &operator<<(std::ostream &os, const uint128_t &val);
+std::ostream &operator<<(std::ostream &os, const int128_t &val);
+#endif
+
 #if HAS_NATIVE_INT128
 
 /**

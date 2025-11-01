@@ -13,11 +13,11 @@
  * ==============================================================================
  */
 
-#include "internal/factorial_lookup_table.hpp" // <-- CORREGIDO: Ruta relativa a internal/
-#include <limits>                              // Para numeric_limits
+#include <limits> // Para numeric_limits
 #include <numbers_calculations/core/extended_type_traits.hpp> // Para enable_if_t y is_signed_v
 #include <numbers_calculations/core/extended_type_traits.hpp> // Para is_supported_integer_v
 #include <numbers_calculations/core/math_errors.hpp> // Para Expected y MathError
+#include <numbers_calculations/math/internal/factorial_lookup_table.hpp> // <-- CORREGIDO: Ruta relativa a internal/
 
 
 namespace numbers_calculations::math {
@@ -71,7 +71,8 @@ constexpr core::Expected<T> constexpr_factorial(T n) noexcept {
  * @optimize_note Usa una lookup_table para n < 34.
  */
 template <typename T,
-          std::enable_if_t<core::is_supported_integer_v<T>, int> = 0>
+          std::enable_if_t<
+              numbers_calculations::core::is_supported_integer_v<T>, int> = 0>
 constexpr core::Expected<T> factorial(T n) noexcept {
 
   // Para tipos con signo, n < 0 es un error de dominio.
@@ -122,7 +123,8 @@ constexpr core::Expected<T> factorial(T n) noexcept {
  * - .error() (MathError::Overflow) si el resultado excede el máximo de T.
  */
 template <typename T,
-          std::enable_if_t<core::is_supported_integer_v<T>, int> = 0>
+          std::enable_if_t<
+              numbers_calculations::core::is_supported_integer_v<T>, int> = 0>
 constexpr core::Expected<T> permutations(T n, T k) noexcept {
   if constexpr (std::is_signed_v<T>) {
     if (n < 0 || k < 0) {
@@ -168,7 +170,8 @@ constexpr core::Expected<T> permutations(T n, T k) noexcept {
  * - .error() (MathError::Overflow) si el resultado excede el máximo de T.
  */
 template <typename T,
-          std::enable_if_t<core::is_supported_integer_v<T>, int> = 0>
+          std::enable_if_t<
+              numbers_calculations::core::is_supported_integer_v<T>, int> = 0>
 constexpr core::Expected<T> combinations(T n, T k) noexcept {
   if constexpr (std::is_signed_v<T>) {
     if (n < 0 || k < 0) {

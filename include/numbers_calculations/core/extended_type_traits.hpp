@@ -21,8 +21,8 @@
  * ==============================================================================
  */
 
-#include <limits> // Para std::numeric_limits
-#include <numbers_calculations/core/extended_type_traits.hpp> // Para std::is_integral, std::integral_constant, etc.
+#include <limits>      // Para std::numeric_limits
+#include <type_traits> // Para std::is_integral, std::integral_constant, etc.
 
 // --- Detección de Compilador y Soporte de __int128 ---
 // __int128_t y __uint128_t son extensiones de GCC y Clang.
@@ -181,4 +181,3 @@ inline constexpr bool is_supported_integer_v = is_supported_integer<T>::value;
 
 // Los numeric_limits para Boost ya están proporcionados por la propia
 // biblioteca Boost. No necesitamos especializarlos manualmente.
-#endif // HAS_NATIVE_INT128

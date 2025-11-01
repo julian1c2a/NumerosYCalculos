@@ -13,11 +13,11 @@
  * ==============================================================================
  */
 
-#include "internal/factorial_lookup_table.hpp" // <-- CORREGIDO: Ruta relativa a internal/
-#include <limits>                              // Para numeric_limits
+#include <limits> // Para numeric_limits
 #include <numbers_calculations/core/extended_extended_type_traits.hpp> // Para is_supported_integer_v
 #include <numbers_calculations/core/extended_type_traits.hpp> // Para enable_if_t y is_signed_v
 #include <numbers_calculations/core/math_errors.hpp> // Para Expected y MathError
+#include <numbers_calculations/math/internal/factorial_lookup_table.hpp> // <-- CORREGIDO: Ruta relativa a internal/
 
 
 namespace numbers_calculations::math {
