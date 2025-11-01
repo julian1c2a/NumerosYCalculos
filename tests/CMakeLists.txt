@@ -16,7 +16,7 @@ add_executable(unit_tests
 # 2. La biblioteca principal de Catch2
 target_link_libraries(unit_tests
     PRIVATE
-        numeros_calculos_interface
+        NumerosYCalculos_interface
         Catch2::Catch2WithMain
 )
 

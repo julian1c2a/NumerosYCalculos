@@ -110,4 +110,3 @@ Este proyecto está bajo la **Licencia MIT**. Consulta el archivo `LICENSE` para 
                 'max-w-none'              // Eliminar límite de ancho de 'prose'
             );
         });
-

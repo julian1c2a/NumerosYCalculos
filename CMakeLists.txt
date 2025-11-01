@@ -80,13 +80,13 @@ endif()
 # ==============================================================================
 
 # Añadimos el directorio 'include' globalmente
-target_include_directories(numeros_calculos_interface
+target_include_directories(NumerosYCalculos_interface
     INTERFACE
         ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
 # Añadimos los directorios de las dependencias
-target_include_directories(numeros_calculos_interface
+target_include_directories(NumerosYCalculos_interface
     INTERFACE
         ${catch2_SOURCE_DIR}/src # Para Catch2
         ${tl_expected_SOURCE_DIR}/include # Para tl::expected
