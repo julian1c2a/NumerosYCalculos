@@ -16,9 +16,9 @@
 #include <concepts>                   // Para std::integral (si C++20)
 #include <limits>                     // Para numeric_limits
 #include <numbers_calculations/core/extended_type_traits.hpp> // Para is_supported_integer_v
-#include <numbers_calculations/core/math_error.hpp> // Para Expected y MathError
-#include <stdexcept>                                // Para std::domain_error
-#include <type_traits>                              // Para enable_if_t
+#include <numbers_calculations/core/math_errors.hpp> // Para Expected y MathError
+#include <stdexcept>                                 // Para std::domain_error
+#include <type_traits>                               // Para enable_if_t
 
 // --- Detección de intrínsecos de compilador para log2 ---
 #if defined(_MSC_VER)

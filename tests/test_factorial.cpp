@@ -9,7 +9,7 @@
  */
 
 #include "core/constexpr_literals.hpp"
-#include "core/math_error.hpp"
+#include "core/math_errors.hpp"
 #include "math/combinatorics.hpp"
 #include <catch2/catch_test_macros.hpp>
 

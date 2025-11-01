@@ -10,7 +10,7 @@
 
 #include <catch2/catch_test_macros.hpp>
 #include <numbers_calculations/core/constexpr_literals.hpp>
-#include <numbers_calculations/core/math_error.hpp>
+#include <numbers_calculations/core/math_errors.hpp>
 #include <numbers_calculations/math/combinatorics.hpp>
 
 using namespace numbers_calculations;

@@ -12,11 +12,10 @@
  * ==============================================================================
  */
 
-#include "core/math_error.hpp"  // Para Expected y MathError (NUEVO)
+#include "core/math_errors.hpp" // Para Expected y MathError (NUEVO)
 #include "core/type_traits.hpp" // Para is_integer_v
 #include <limits>               // Para numeric_limits
 #include <type_traits>          // Para enable_if_t y is_signed_v
-
 
 namespace numbers_calculations::math {
 

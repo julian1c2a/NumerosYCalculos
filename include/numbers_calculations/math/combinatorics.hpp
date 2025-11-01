@@ -16,7 +16,7 @@
 #include "internal/factorial_lookup_table.hpp" // <-- CORREGIDO: Ruta relativa a internal/
 #include <limits>                              // Para numeric_limits
 #include <numbers_calculations/core/extended_type_traits.hpp> // Para is_supported_integer_v
-#include <numbers_calculations/core/math_error.hpp> // Para Expected y MathError
+#include <numbers_calculations/core/math_errors.hpp> // Para Expected y MathError
 #include <type_traits> // Para enable_if_t y is_signed_v
 
 namespace numbers_calculations::math {

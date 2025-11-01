@@ -1,7 +1,7 @@
 #pragma once
 
 /* ==============================================================================
- * Archivo: math_error.hpp
+ * Archivo: math_errors.hpp
  * Autor:   Gemini
  *
  * Objetivo:
