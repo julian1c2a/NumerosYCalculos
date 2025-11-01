@@ -19,7 +19,7 @@ Crear un proyecto C++ avanzado de algoritmos matemáticos sobre números enteros
    - Soporte para números enteros procedentes de Boost.Multiprecision, tanto los 3 tipos de longitud 
    arbitraria (cpp_int, tom_int y mpz_int), como para los tipos de 128, 256, 512, 1024 y 2048 bits.
 
-   - Completación de los std::type_traits para los nuevos tipos y la extensión de std::numeric_limits
+   - Completación de los std::extended_type_traits para los nuevos tipos y la extensión de std::numeric_limits
    también a esos tipos enteros y los racionales basados en esos tipos.
 
    - Funciones constexpr para cálculos en tiempo de compilación (nivel de optimización)                                                                  
@@ -139,7 +139,7 @@ NumerosYCalculos/
 
 │   ├── int128_io.hpp                      # E/O completa para __int128
 
-│   └── number_type_traits.hpp             # Traits de tipos numéricos
+│   └── number_extended_type_traits.hpp             # Traits de tipos numéricos
 
 ├── src/                                   # Estructura por directorios como si fuesen 
                                            # módulos en Python o Rust

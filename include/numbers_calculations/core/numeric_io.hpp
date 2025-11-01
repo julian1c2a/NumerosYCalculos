@@ -25,7 +25,6 @@
 #include <string>
 #include <vector>
 
-
 namespace numbers_calculations::core {
 
 #if HAS_NATIVE_INT128

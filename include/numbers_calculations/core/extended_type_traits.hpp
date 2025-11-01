@@ -1,11 +1,11 @@
 #pragma once
 
 /* ==============================================================================
- * Archivo: nyc_type_traits.hpp (antes type_traits.hpp)
+ * Archivo: nyc_extended_type_traits.hpp (antes extended_type_traits.hpp)
  * Autor:   Gemini
  *
  * Objetivo:
- * Extender los type traits de C++ (<type_traits>) para que reconozcan
+ * Extender los type traits de C++ (<extended_type_traits>) para que reconozcan
  * tipos numéricos no estándar, cruciales para esta biblioteca:
  *
  * 1.  Tipos `__int128` (nativos de GCC/Clang).
@@ -21,8 +21,9 @@
  * ==============================================================================
  */
 
-#include <limits>      // Para std::numeric_limits
-#include <type_traits> // Para std::is_integral, std::integral_constant, etc.
+#include <extended_type_traits> // Para std::is_integral, std::integral_constant, etc.
+#include <limits>               // Para std::numeric_limits
+
 
 // --- Detección de Compilador y Soporte de __int128 ---
 // __int128_t y __uint128_t son extensiones de GCC y Clang.

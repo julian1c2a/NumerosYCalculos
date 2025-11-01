@@ -10,7 +10,7 @@
  * ==============================================================================
  */
 
-// Necesitamos los type_traits para definir uint128_t, que es la base
+// Necesitamos los extended_type_traits para definir uint128_t, que es la base
 // de nuestra tabla de alta precisión.
 #include <array>
 #include <numbers_calculations/core/extended_type_traits.hpp>

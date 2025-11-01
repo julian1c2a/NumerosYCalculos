@@ -63,7 +63,7 @@ Esto configurará, compilará y generará los ejecutables (ej. `demo_main.exe`) den
 NumerosYCalculos/
 +-- build_[config]/    # (Generado por el script)
 +-- include/           # Headers de la biblioteca (API pública)
-¦   +-- core/          # (type_traits, numeric_io, constexpr_literals...)
+¦   +-- core/          #extended_type_traitsts, numeric_io, constexpr_literals...)
 ¦   +-- math/          # (integer_ops, combinatorics...)
 +-- src/               # Demos y ejecutables (main.cpp)
 +-- tests/             # Pruebas unitarias (Catch2)

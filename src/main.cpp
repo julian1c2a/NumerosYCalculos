@@ -33,7 +33,7 @@ using namespace numbers_calculations::core::literals;
 using namespace numbers_calculations;
 
 // --- Demo para la Fase 2a: Type Traits ---
-void demo_type_traits() {
+void demo_extended_type_traits() {
   std::cout << "\n--- [Demo: Fase 2a - Type Traits] ---\n";
   std::cout << std::boolalpha; // Imprimir 'true'/'false'
 
@@ -204,7 +204,7 @@ int main() {
   std::cout << "   Bienvenido a la Demo de NumerosYCalculos  \n";
   std::cout << "=============================================\n";
 
-  demo_type_traits();
+  demo_extended_type_traits();
   // demo_numeric_io(); // Descomentar para probar la E/S interactiva
   demo_constexpr_literals();
   demo_integer_ops();
