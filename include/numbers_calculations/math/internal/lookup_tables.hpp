@@ -12,9 +12,10 @@
 
 // Necesitamos los extended_type_traits para definir uint128_t, que es la base
 // de nuestras tablas de alta precisión.
-#include "core/extended_type_traits.hpp" // Para uint128_t
 #include <array>
 #include <limits>
+#include <numbers_calculations/core/extended_type_traits.hpp> // Para uint128_t
+
 
 namespace numbers_calculations::math::internal {
 
