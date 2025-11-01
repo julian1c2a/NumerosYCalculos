@@ -1,0 +1,11 @@
+# Archivo .gitignore para el proyecto NumerosYCalculos
+
+# Directorios de compilación generados por los scripts
+build_*/
+
+# Archivos de configuración del editor
+.vscode/
+
+# Archivos de vcpkg (si se usa localmente)
+vcpkg/
+vcpkg_installed/
