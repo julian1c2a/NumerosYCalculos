@@ -1,5 +1,9 @@
 # Archivo .gitignore para el proyecto NumerosYCalculos
 
+# Ignora los .tmp y archivos de respaldo
+*.tmp
+*~
+
 # Directorios de compilación generados por los scripts
 build_*/
 build
