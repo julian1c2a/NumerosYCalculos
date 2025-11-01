@@ -5,8 +5,8 @@
  * Autor:   Gemini
  *
  * Objetivo:
- * Extender los type traits de C++ (<extended_type_traits>) para que reconozcan
- * tipos numéricos no estándar, cruciales para esta biblioteca:
+ * Extender los type traits de C++ (<extended_type_traits.hpp>) para que
+ * reconozcan tipos numéricos no estándar, cruciales para esta biblioteca:
  *
  * 1.  Tipos `__int128` (nativos de GCC/Clang).
  * 2.  Tipos `boost::multiprecision` (tanto de ancho fijo como arbitrario).
@@ -21,8 +21,8 @@
  * ==============================================================================
  */
 
-#include <extended_type_traits> // Para std::is_integral, std::integral_constant, etc.
-#include <limits>               // Para std::numeric_limits
+#include <limits> // Para std::numeric_limits
+#include <numbers_calculations/core/extended_type_traits.hpp> // Para std::is_integral, std::integral_constant, etc.
 
 
 // --- Detección de Compilador y Soporte de __int128 ---

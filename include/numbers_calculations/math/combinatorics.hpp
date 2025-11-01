@@ -14,10 +14,11 @@
  */
 
 #include "internal/factorial_lookup_table.hpp" // <-- CORREGIDO: Ruta relativa a internal/
-#include <extended_type_traits>                // Para enable_if_t y is_signed_v
 #include <limits>                              // Para numeric_limits
+#include <numbers_calculations/core/extended_type_traits.hpp> // Para enable_if_t y is_signed_v
 #include <numbers_calculations/core/extended_type_traits.hpp> // Para is_supported_integer_v
 #include <numbers_calculations/core/math_errors.hpp> // Para Expected y MathError
+
 
 namespace numbers_calculations::math {
 
